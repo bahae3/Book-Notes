@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #D3D3D3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* header section */
+header {
+    background-color: #11395e;
+    padding: 2rem 0;
+}
+
+.header-title {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    color: #D3D3D3;
+}
+
+/*  #0291B5 */
+.header-title span {
+    border-bottom: 0.3rem #D3D3D3 solid;
+    border-radius: 0.4rem;
+}
+
+/* footer section */
+hr {
+    width: 76rem;
+    border: 1px #11395e solid;
+}
+
+footer {
+    /* background-color: #066886; */
+    padding: 3rem 0;
+    margin-top: auto;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 3.5rem;
+}
+
+/* content */
+main {
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.main-p {
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.add-book-main {
+    background-color: #11395e;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.add-book-main:hover {
+    background-color: #0d2b49;
+    /* Slightly darker shade for hover effect */
+    color: #fff;
+}

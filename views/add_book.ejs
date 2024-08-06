@@ -1,0 +1,23 @@
+<%- include('header.ejs') %>
+
+<form action="/add_book_data" method="post">
+    <label class="add-book-label">Book title:</label>
+    <input type="text" name="title">
+
+    <label class="add-book-label">Author:</label>
+    <input type="text" name="author">
+
+    <label class="add-book-label">Publication year:</label>
+    <input type="text" name="year">
+
+    <label class="add-book-label">ISBN:</label>
+    <input type="text" name="isbn">
+
+    <label class="add-book-label">Summary:</label>
+    <textarea class="add-book-txtarea" name="summary"></textarea>
+
+    <input type="submit" value="Add">
+    <input type="submit" value="Back" formaction="/">
+</form>
+
+<%- include('footer.ejs') %>

@@ -1,0 +1,12 @@
+<%- include('header.ejs') %>
+
+<main>
+    <% if (books.length > 0){ %>
+        <p class="main-p">Books are here</p>
+    <% } else { %>
+        <p class="main-p">There are no books yet</p>
+        <a href="/add_book" class="add-book-main">Add a book</a>
+    <% } %>
+</main>
+
+<%- include('footer.ejs') %>
