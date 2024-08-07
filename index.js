@@ -24,11 +24,10 @@ let books = [];
 app.get("/", async (req, res) => {
     try {
         books = (await db.query("SELECT * FROM book")).rows;
-        // console.log(books);
     }
     catch (error) {
         console.log(error);
-        res.status(500);
+        res.sendStatus(500);
     }
     res.render("index.ejs", { books: books });
 });
@@ -37,15 +36,61 @@ app.get("/add_book", (req, res) => {
     res.render("add_book.ejs");
 });
 
-app.post("/add_book_data", (req, res) => {
+app.post("/add_book_data", async (req, res) => {
     const title = req.body.title;
     const author = req.body.author;
     const year = req.body.year;
     const isbn = req.body.isbn;
     const summary = req.body.summary;
 
-    console.log("ADD BOOK");
+    try {
+        await db.query("INSERT INTO book (title, author, year, isbn, summary) VALUES ($1, $2, $3, $4, $5)",
+            [title, author, year, isbn, summary]
+        );
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
     res.redirect("/");
+});
+
+
+app.get("/book_notes", async (req, res) => {
+    const id = req.query.id;
+    let book = {};
+    try {
+        book = (await db.query("SELECT id, title, author, notes FROM book WHERE id=$1", [id])).rows[0];
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+    res.render("book_notes.ejs", { book: book });
+});
+
+app.get("/add_notes", async (req, res) => {
+    const id = req.query.id;
+    let notes = {};
+    try {
+        notes = (await db.query("SELECT notes FROM book WHERE id=$1", [id])).rows[0];
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+    res.render("add_notes.ejs", { id: id, notes: notes });
+});
+
+app.post("/add_notes_data", async (req, res) => {
+    const notes = req.body.notes;
+    const book_id = req.body.id;
+    try {
+        await db.query("UPDATE book SET notes=$1 WHERE id=$2",
+            [notes, book_id]
+        );
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+    }
+    res.redirect("/book_notes?id=" + book_id);
 });
 
 app.listen(port, () => {

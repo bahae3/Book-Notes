@@ -1,23 +1,28 @@
 <%- include('header.ejs') %>
+    <main class="main-form">
+        <h1>Fill in the info:</h1>
+        <form action="/add_book_data" method="post" class="add-book-form">
+            <label class="add-book-label">Book title:</label>
+            <input type="text" name="title" class="add-book-input">
 
-<form action="/add_book_data" method="post">
-    <label class="add-book-label">Book title:</label>
-    <input type="text" name="title">
+            <label class="add-book-label">Author:</label>
+            <input type="text" name="author" class="add-book-input">
 
-    <label class="add-book-label">Author:</label>
-    <input type="text" name="author">
+            <label class="add-book-label">Publication year:</label>
+            <input type="text" name="year" class="add-book-input">
 
-    <label class="add-book-label">Publication year:</label>
-    <input type="text" name="year">
+            <label class="add-book-label">ISBN: (&lt;15)</label>
+            <input type="text" name="isbn" class="add-book-input">
 
-    <label class="add-book-label">ISBN:</label>
-    <input type="text" name="isbn">
+            <label class="add-book-label">Summary: <span id="char-count" class="char-count">0/300</span></label>
+            <textarea id="summary" class="add-book-txtarea" name="summary" rows="10" cols="30"></textarea>
+            <div class="error-message" id="error-message"></div>
 
-    <label class="add-book-label">Summary:</label>
-    <textarea class="add-book-txtarea" name="summary"></textarea>
+            <div class="button-group">
+                <input type="submit" value="Add" class="add-book-button">
+                <a href="/" class="add-book-button add-book-anchor">Back</a>
+            </div>
+        </form>
+    </main>
 
-    <input type="submit" value="Add">
-    <input type="submit" value="Back" formaction="/">
-</form>
-
-<%- include('footer.ejs') %>
+    <%- include('footer.ejs') %>

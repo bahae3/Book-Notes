@@ -1,12 +1,29 @@
 <%- include('header.ejs') %>
 
-<main>
-    <% if (books.length > 0){ %>
-        <p class="main-p">Books are here</p>
-    <% } else { %>
-        <p class="main-p">There are no books yet</p>
-        <a href="/add_book" class="add-book-main">Add a book</a>
-    <% } %>
-</main>
+    <main>
+        <% if (books.length> 0){ %>
+            <a href="/add_book" class="add-book-main">Add a book</a>
+            <!-- <p class="main-p">Books are here</p> -->
+            <% for (let book of books) { %>
+                <div class="book">
+                    <div class="one-book">
+                        <img src="/noimage.jpg" alt="Book Image" class="book-image">
+                        <div class="book-info">
+                            <h2 class="book-title">
+                                <%= book.title %> - by <%- book.author %>
+                            </h2>
+                            <p class="book-year">Published in: <span><%- book.year %></span></p>
+                        </div>
+                    </div>
+                    <p class="book-summary"><%- book.summary %></p>
+                    <p>Click here to <a href="/book_notes?id=<%= book.id %>" class="book-note">add notes</a> to this
+                        book.</p>
+                </div>
+                <% } %>
+                    <% } else { %>
+                        <p class="main-p">There are no books yet</p>
+                        <a href="/add_book" class="add-book-main">Add a book</a>
+                        <% } %>
+    </main>
 
-<%- include('footer.ejs') %>
+    <%- include('footer.ejs') %>

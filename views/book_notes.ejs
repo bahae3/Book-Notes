@@ -1,0 +1,21 @@
+<%- include('header.ejs') %>
+
+    <main>
+        <h1 class="add-note-title">Book: <%= book.title %> - by: <%= book.author %>
+        </h1>
+        <% if (book.notes===null){ %>
+            <p class="add-nonote-p">This book has no notes yet. Add new notes.</p>
+            <a href="/add_notes?id=<%= book.id %>" class="add-book-button add-book-anchor">Add notes</a>
+            <a href="/" class="add-book-button add-book-anchor">Home</a>
+            <%} else {%>
+                <h3>Notes: </h3>
+                <p class="add-note-p">
+                    <%= book.notes %>
+                </p>
+                <a href="/add_notes?id=<%= book.id %>" class="add-book-button add-book-anchor">Add more notes</a>
+                <a href="/" class="add-book-button add-book-anchor">Home</a>
+                <% } %>
+
+    </main>
+
+    <%- include('footer.ejs') %>

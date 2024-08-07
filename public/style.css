@@ -70,3 +70,156 @@ main {
     /* Slightly darker shade for hover effect */
     color: #fff;
 }
+
+/* add a book in add_book.ejs */
+.main-form {
+    text-align: left;
+}
+
+.add-book-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* max-width: 25rem; */
+    width: 25rem;
+}
+
+.add-book-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.add-book-input,
+.add-book-txtarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+.add-book-txtarea {
+    height: 8rem;
+    max-height: 16rem;
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-book-button {
+    background-color: #11395e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.add-book-anchor {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    display: inline-block;
+    width: 6.5rem;
+}
+
+.add-book-button:hover {
+    background-color: #0d2b49;
+}
+
+.add-book-button:last-child {
+    margin-right: 0;
+}
+
+/* textarea character count */
+.char-count {
+    font-size: 0.9em;
+    /* color: #555; */
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 1.2rem;
+}
+
+/* books existing styling */
+.book {
+    padding: 3rem 20rem;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* display: flex; */
+}
+
+.one-book {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+}
+
+.book-info {
+    margin-left: 3.5rem;
+}
+
+.book-image {
+    width: 10rem;
+    height: auto;
+}
+
+.book-year span {
+    font-weight: bolder;
+}
+
+.book-summary {
+    font-size: 1.1rem;
+}
+
+.book-note {
+    color: #245380;
+}
+
+.book-note:hover {
+    text-decoration: none;
+}
+
+/* add note section */
+.add-nonote-p {
+    margin: 4rem auto 5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.add-note-p {
+    margin: 3rem auto 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px #000 solid;
+    border-radius: 5px;
+    text-align: justify;
+    margin: 1.5rem auto 3rem;
+    width: 55rem;
+    padding: 1rem 2rem;
+}
+
+.add-notes-txtarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 8rem;
+    /* max-height: 26rem; */
+    min-height: 8rem;
+    resize: vertical;
+}

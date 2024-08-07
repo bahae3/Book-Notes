@@ -1,7 +1,29 @@
+<footer>
+    <hr>
+    <p class="copyright">Copyright &copy; - 2024</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.getElementById('summary');
+        const charCount = document.getElementById('char-count');
+        const errorMessage = document.getElementById('error-message');
+        const charLimit = 300;
 
-    <footer>
-        <hr>
-        <p class="copyright">Copyright &copy; - 2024</p>
-    </footer>
+        textarea.addEventListener('input', () => {
+            const text = textarea.value;
+            const currentLength = text.length;
+
+            if (currentLength > charLimit) {
+                textarea.value = text.substring(0, charLimit);
+                errorMessage.textContent = `Character limit of ${charLimit} exceeded. Excess text has been truncated.`;
+            } else {
+                errorMessage.textContent = '';
+            }
+
+            charCount.textContent = `${textarea.value.length}/${charLimit}`;
+        });
+    });
+</script>
 </body>
+
 </html>

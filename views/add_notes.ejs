@@ -1,0 +1,16 @@
+<%- include('header.ejs') %>
+
+    <main>
+        <h1>Add notes:</h1>
+        <form action="/add_notes_data" method="post" class="add-book-form">
+            <% if (notes===null){ %>
+                <textarea name="notes" class="add-notes-txtarea"></textarea>
+                <% } else {%>
+                    <textarea name="notes" class="add-notes-txtarea"><%= notes.notes %></textarea>
+                    <% } %>
+                        <input type="hidden" name="id" value="<%= id %>">
+                        <input type="submit" value="Submit" class="add-book-button">
+        </form>
+    </main>
+
+    <%- include('footer.ejs') %>
