@@ -7,13 +7,18 @@
             <% for (let book of books) { %>
                 <div class="book">
                     <div class="one-book">
-                        <img src="/noimage.jpg" alt="Book Image" class="book-image">
-                        <div class="book-info">
-                            <h2 class="book-title">
-                                <%= book.title %> - by <%- book.author %>
-                            </h2>
-                            <p class="book-year">Published in: <span><%- book.year %></span></p>
-                        </div>
+                        <% if (book.isbn.charAt(0)>= '0' && book.isbn.charAt(0) <= '9' ){ %>
+                                <img src="<%= book.img_url %>" alt="Book Image" class="book-image">
+                                <% } else{ %>
+                                    <img src="/noimage.jpg" alt="Book Image" class="book-image">
+                                    <% } %>
+                                        <div class="book-info">
+                                            <h2 class="book-title">
+                                                <%= book.title %> - by <%- book.author %>
+                                            </h2>
+                                            <p class="book-year">Published in: <span><%- book.year %></span></p>
+                                            <p class="book-year">ISBN: <span><%- book.isbn %></span></p>
+                                        </div>
                     </div>
                     <p class="book-summary"><%- book.summary %></p>
                     <p>Click here to <a href="/book_notes?id=<%= book.id %>" class="book-note">add notes</a> to this

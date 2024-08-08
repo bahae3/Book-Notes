@@ -1,6 +1,7 @@
 import express from 'express';
 import pg from 'pg';
 import bodyParser from 'body-parser';
+import axios from 'axios';
 
 const app = express();
 const port = 3000;
@@ -24,11 +25,15 @@ let books = [];
 app.get("/", async (req, res) => {
     try {
         books = (await db.query("SELECT * FROM book")).rows;
+        books.forEach(book => {
+            book["img_url"] = "https://covers.openlibrary.org/b/isbn/" + book.isbn + "-L.jpg";
+        });
     }
     catch (error) {
         console.log(error);
         res.sendStatus(500);
     }
+    console.log(books);
     res.render("index.ejs", { books: books });
 });
 
